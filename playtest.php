@@ -155,7 +155,7 @@
             </button>
           </div>
           <div class="modal-body">
-                <p><small class="text-muted">Early Beta Version</small></p>
+                <p><small class="text-muted">Early Beta Version - <a href="https://github.com/AlanOC91/ygoprodeck-playtest" target="_blank">Issues/Contribute</a></small></p>
                 <p>This tool will allow you to playtest YGOPRODeck decks in a single-player fashion.</p>
                 <p>It allows you to draw and place cards, view your deck, extra deck, GY and more. In essence, it allows you to get a feel for how your deck will work in the opening turns.</p>
                 <p>It does <strong>not</strong> have any card scripts for effects nor will it ever.</p>
