@@ -234,8 +234,15 @@ jQuery( document ).ready(function() {
     }else{
         shuffle(main_deck);
         deckcount = main_deck.length;
-        extra_deck = extra_deck_og.slice();
-        extradeckcount = extra_deck.length;
+        
+        if(extra_deck !== null){
+            extra_deck = extra_deck_og.slice();
+            extradeckcount = extra_deck.length;
+        }else{
+            extra_deck = [];
+            extradeckcount = 0;    
+        }
+        
         jQuery('.extradecksize').html(extradeckcount);   
         
         jQuery('#show-beta').modal('toggle');
@@ -251,4 +258,4 @@ jQuery( document ).ready(function() {
     
 });
 </script> 
-<script type="text/javascript" src="/decks/js/playtest.js?v=1.00"></script>
+<script type="text/javascript" src="/decks/js/playtest.js?v=1.03"></script>

@@ -39,6 +39,9 @@ function ViewExtraDeck(){
         });
         jQuery('.extra-deck-list').html(deckhtml);
         jQuery('#viewExtraDeck').modal('toggle');
+    }else{
+     	jQuery('#notifyToast .toast-body').html("Extra Deck is empty.");
+     	jQuery('#notifyToast').toast('show');           
     }
     assignDeckGYContextMenu();
     rebindClick();
@@ -306,7 +309,8 @@ interact('.dropzone').dropzone({
         deckDeincrement();
         if (jQuery('#viewDeck').is(':visible')) {
             jQuery('#viewDeck').modal('toggle');
-        }        
+        }  
+        switchContext('overview'); //Change context to overview on card drop from deck so we can easily re-open the deck modal via hotkey
     }else if(jQuery(event.relatedTarget).hasClass("insideextradeck")){
         //This card is removed from inside the extra deck
         jQuery(original).removeClass("insideextradeck").addClass("extradeckcard").appendTo("#zone-playarea");
@@ -318,6 +322,7 @@ interact('.dropzone').dropzone({
             jQuery('#viewExtraDeck').modal('toggle');
         }     
         rebindClick();
+        switchContext('overview'); //Change context to overview on card drop from extra deck so we can easily re-open the extra deck modal via hotkey
     }else if(jQuery(event.relatedTarget).hasClass("insidegy")){
         //This card is removed from the GY
         jQuery(original).removeClass("insidegy").addClass("removed-from-hand").appendTo("#zone-playarea");
@@ -328,14 +333,16 @@ interact('.dropzone').dropzone({
         GYDeincrement();
         if (jQuery('#viewGY').is(':visible')) {
             jQuery('#viewGY').modal('toggle');
-        }        
+        } 
+        switchContext('overview'); //Change context to overview on card drop from gy so we can easily re-open the gy modal via hotkey
     }else{
         //This card is removed from inside the Hand
         jQuery(original).remove();  //Remove original element after cloned
         if (!jQuery(event.relatedTarget).hasClass("removed-from-hand")) {
             //Deincrement Hand Count
             handDeincrement();
-        }         
+        }     
+        switchContext('card');
     }     
     
     if(jQuery(event.relatedTarget.tagName == 'DIV')){
@@ -347,7 +354,6 @@ interact('.dropzone').dropzone({
     }
     event.relatedTarget.classList.add('removed-from-hand');
     assignCardContextMenu();
-    switchContext('card');
   },
   ondropdeactivate: function (event) {
     // remove active dropzone feedback
