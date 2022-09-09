@@ -1,6 +1,6 @@
 <?php
     include '../includes/session_check.php';
-    include '../include/playtest_deck.php';
+    include '../includes/playtest_deck.php';
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
