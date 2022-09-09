@@ -1,0 +1,109 @@
+body {
+    background: #666;    
+}
+.dropdown-menu-tool{
+    min-width: 250px;
+}
+.draggable{
+  -ms-touch-action: none;
+  touch-action: none;      
+}
+.card-draggable{
+    display: inline-block;
+}
+.rotate-90 { 
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+#graveyard{
+    height: 138.06px;
+    width: 100px;
+    border: 2px solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+#play-hand{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+    text-align: left;
+}
+.playarea-card, .background-card{
+    width: 100%;
+    max-width: 100px;
+    border: 2px solid transparent;  
+}
+.background-card{
+    cursor: pointer;
+}
+.playarea-card:hover, .background-card:hover{
+    border: 2px solid black;
+}
+.board {
+    flex-grow: 1;
+    position: relative;
+    background: #666;
+}
+#zone-playarea{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(80% - 20px);
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #262626 1px, transparent 1px),linear-gradient(to bottom, #262626 1px, transparent 1px);
+    background-color: #222;
+    background-size: 20px 20px;
+    overflow: hidden;   
+}  
+.deck-list {
+    text-align: center;
+}
+.deck-list-card {
+    max-width: 100px;
+    margin: 3px;
+}
+.bg-tool-line {
+    background-color: #e4e4e4;
+    height: 1px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#deckgy-context-menu{
+    z-index: 9999999999999999;
+}
+#deck-info-bottom {
+    display: inline-flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    height: calc(var(--card-height) + 40px);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+@media (min-width: 576px){
+    #deck-info-bottom {
+        flex-wrap: nowrap;
+        height: calc(var(--card-height) + 40px);
+    }
+}
+@media (max-width: 700px){
+    .row.w-100 .col {
+        flex-basis: fit-content;
+    }    
+    .playarea-card, .background-card{
+        max-width: 60px;
+    }
+    #graveyard{
+        max-width: 60px;
+        max-height: 82.2px;
+    }
+}
